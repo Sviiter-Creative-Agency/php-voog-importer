@@ -18,7 +18,7 @@ try {
     $migrate = new \Voog\Migrate($json['data'][$_SERVER['argv'][1]]);
     $result = $migrate->doMigrate();
 
-    printf("Article #{$result} - {$migrate->getParser()->getDate()->format('Y-m-d')} imported successfully! ({$migrate->getParser()->getTitle()})");
+    printf("Article #{$result->id} - {$migrate->getParser()->getDate()->format('Y-m-d')} imported successfully! ({$migrate->getParser()->getTitle()})");
 
 } catch (Exception $e) {
     printf('Error: ' . $e->getMessage());
