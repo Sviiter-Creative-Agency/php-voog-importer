@@ -46,7 +46,7 @@ Replace `{jsonIndexId}` with the JSON index ID you intend to process. The comman
 - To sequentially process multiple JSON index IDs (e.g., 35, 36, 37):
 
   ```shell
-  for id in 35 36 37; do php migrate.php $id | tee -a log; done
+  for i in `seq 1 1000`; do php migrate.php $i | tee -a log; done
   ```
 
 ### What to Expect

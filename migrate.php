@@ -17,7 +17,7 @@ try {
     printf("Article #{$result->id} imported successfully! ({$migrate->getParser()->getTitle()})");
 
 } catch (Exception $e) {
-    printf($e->getMessage());
+    printf('Error: ' . $e->getMessage());
 }
 
 echo PHP_EOL;
