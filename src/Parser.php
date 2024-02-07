@@ -34,7 +34,7 @@ class Parser
     public function getDate()
     {
         // Create a DateTime object from the original date string
-        return DateTime::createFromFormat('Y-m-d H:i:s', $this->data['created']);
+        return DateTime::createFromFormat('Y-m-d H:i:s', $this->data['time']);
     }
 
     public function getContent()
