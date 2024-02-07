@@ -1,0 +1,12 @@
+{
+  "require": {
+  },
+  "config": {
+    "platform-check": false
+  },
+  "autoload": {
+    "psr-4": {
+      "Voog\\": "src/"
+    }
+  }
+}
