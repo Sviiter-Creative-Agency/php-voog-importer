@@ -28,13 +28,13 @@ class Parser
         return null; // Return null if no <h1> tag is found
     }
 
+    /**
+     * @return DateTime|false
+     */
     public function getDate()
     {
         // Create a DateTime object from the original date string
-        $date = DateTime::createFromFormat('Y-m-d H:i:s', $this->data['created']);
-
-        // Since PHP does not directly support milliseconds in the DateTime format, we manually add ".000"
-        return $date->format('d.m.Y');
+        return DateTime::createFromFormat('Y-m-d H:i:s', $this->data['created']);
     }
 
     public function getContent()

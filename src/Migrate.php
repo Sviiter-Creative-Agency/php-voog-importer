@@ -21,6 +21,15 @@ class Migrate
             throw new Exception("Data ID #{$this->parser->getId()} does not have the title, skipped.");
         }
 
+        /** @var DateTime $date */
+        $date = $this->parser->getDate();
+        $year = (int)$date->format('Y');
+
+        // Check if the year is not 2021, 2022, or 2023
+        if ($year < 2021 || $year > 2023) {
+            throw new Exception("Data ID #{$this->parser->getId()} - {$this->parser->getDate()->format('Y-m-d')} is old data, skipped.");
+        }
+        
         $firstImageFileName = $this->parser->getFirstImageName();
         $voogAssetId = false;
 
@@ -36,7 +45,7 @@ class Migrate
             $this->parser->getTitle(),
             $this->parser->getReplacedImageUrls(),
             $voogAssetId,
-            $this->parser->getDate()
+            $this->parser->getDate()->format('d.m.Y')
         );
 
         return $article;
